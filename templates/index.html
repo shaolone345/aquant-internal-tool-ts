@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Web App</title>
+</head>
+<body>
+    <h1>Select the Web App You Want to Use</h1>
+    <form action="{{ url_for('select_app') }}" method="post">
+        <label for="app">Choose an app:</label>
+        <select name="app" id="app">
+            {% for app_name in web_apps.keys() %}
+                <option value="{{ app_name }}">{{ app_name }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Go</button>
+    </form>
+</body>
+</html>
