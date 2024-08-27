@@ -1,5 +1,5 @@
 import streamlit as st
-import decrypt.py
+import decrypt
 import app2
 import app3
 from utils import check_login
