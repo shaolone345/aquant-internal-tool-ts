@@ -33,3 +33,9 @@ def check_login():
         login()
         return False
     return True
+
+def logout():
+    """Logout function"""
+    if st.button("Logout"):
+        st.session_state['logged_in'] = False
+        st.experimental_rerun()
