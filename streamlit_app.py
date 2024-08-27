@@ -17,7 +17,7 @@ def main():
             st.session_state['logout'] = False
           
 
-        if app_choice == "Decrypt":
+        if app_choice == "decrypt":
             decrypt.run()
         elif app_choice == "App 2":
             app2.run()
