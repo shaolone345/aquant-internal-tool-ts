@@ -1,17 +1,14 @@
-import streamlit as st
-import os
-import zipfile
-import pikepdf
-
 def run():
     st.title("PDF Decryptor")
 
-    # File uploader for ZIP files containing PDFs
     uploaded_zip = st.file_uploader("Upload ZIP file containing encrypted PDFs You can only upload zip files for now so please compress your encrypted files into a zip.", type=["zip"])
 
     if uploaded_zip is not None:
+        st.write("ZIP file uploaded.")
         with zipfile.ZipFile(uploaded_zip, 'r') as zip_ref:
             zip_ref.extractall('uploaded_pdfs')
+        
+        st.write("ZIP file extracted.")
 
         # Find all PDF files in the extracted folder
         pdf_files = []
@@ -35,17 +32,21 @@ def run():
                     input_filename = file_path
                     output_filename = os.path.join(output_folder, 'decrypted_' + os.path.basename(file_path))
 
-                    # Decrypt the PDF using pikepdf
+                    st.write(f"Decrypting {input_filename}")
+
                     with pikepdf.open(input_filename) as pdf:
                         pdf.save(output_filename)
 
                     decrypted_files.append(output_filename)
 
-                # Create a ZIP file of the decrypted PDFs
+                st.write(f"Decrypted {len(decrypted_files)} PDFs.")
+
                 zip_filename = 'decrypted_pdfs.zip'
                 with zipfile.ZipFile(zip_filename, 'w') as zipf:
                     for filename in decrypted_files:
                         zipf.write(filename, os.path.basename(filename))
+
+                st.write("ZIP file of decrypted PDFs created.")
 
                 with open(zip_filename, "rb") as fp:
                     st.download_button(
