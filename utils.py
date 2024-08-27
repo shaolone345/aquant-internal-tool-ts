@@ -1,10 +1,10 @@
 import streamlit as st
 
-# Hardcoded usernames and passwords for demonstration purposes
+# Hardcoded usernames and passwords
 usernames = {
     "aungkyaw": "Aquant123!",
-    "douglasmurillo": "Aquant123!",
-    "user3": "password3"
+    "douglasmurillo": "Aquant123!"
+    
 }
 
 def login():
@@ -38,4 +38,4 @@ def logout():
     """Logout function"""
     if st.button("Logout"):
         st.session_state['logged_in'] = False
-        st.experimental_rerun()
+        st.session_state['logout'] = True
