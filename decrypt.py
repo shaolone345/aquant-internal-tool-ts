@@ -7,7 +7,7 @@ def run():
     st.title("PDF Decryptor")
 
     # File uploader for ZIP files containing PDFs
-    uploaded_zip = st.file_uploader("Upload ZIP file containing encrypted PDFs. You can only upload zip files for now so please compress your encrypted files into a zip.", type=["zip"])
+    uploaded_zip = st.file_uploader("Upload ZIP file containing encrypted PDFs You can only upload zip files for now so please compress your encrypted files into a zip.", type=["zip"])
 
     if uploaded_zip is not None:
         with zipfile.ZipFile(uploaded_zip, 'r') as zip_ref:
