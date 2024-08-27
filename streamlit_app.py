@@ -15,7 +15,7 @@ def main():
          # Check if logout was triggered
         if st.session_state.get('logout'):
             st.session_state['logout'] = False
-            st.experimental_rerun()
+          
 
         if app_choice == "Decrypt":
             decrypt.run()
