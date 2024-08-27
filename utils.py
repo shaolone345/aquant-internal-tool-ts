@@ -3,7 +3,7 @@ import streamlit as st
 # Hardcoded usernames and passwords for demonstration purposes
 usernames = {
     "aungkyaw": "Aquant123!",
-    "user2": "password2",
+    "douglasmurillo": "Aquant123!",
     "user3": "password3"
 }
 
