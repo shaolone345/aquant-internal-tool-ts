@@ -7,7 +7,7 @@ from utils import check_login, logout
 def main():
     if check_login():
         st.sidebar.title("Navigation")
-        app_choice = st.sidebar.radio("Choose an app:", ("Decrypt PDFs", "App 2", "App 3"))
+        app_choice = st.sidebar.radio("Choose an app:", ("Decrypt_PDFs", "App 2", "App 3"))
         
         # Adding the logout button in the sidebar
         logout()
@@ -17,7 +17,7 @@ def main():
             st.session_state['logout'] = False
           
 
-        if app_choice == "Decrypt":
+        if app_choice == "Decrypt_PDFs":
             decrypt.run()
         elif app_choice == "App 2":
             app2.run()
